@@ -16,12 +16,12 @@ export const formService = {
     fd.append("email", formData.emailAddress);
     fd.append("phone", formData.phoneNo);
     fd.append("designation", formData.designation);
-    
+
     // 3. Organization Logic (Consolidated)
     fd.append("orgType", formData.organizationType);
     // Checks both possible variable names to be safe
-    fd.append("orgName", formData.organizationName || formData.organization || ""); 
-    
+    fd.append("orgName", formData.organizationName || formData.organization || "");
+
     fd.append("city", formData.city);
     fd.append("programInterests", formData.attendingProgram);
     fd.append("category", formData.category);
@@ -42,7 +42,7 @@ export const formService = {
 
       // 5. Return the result (containing the ID)
       const result = await response.json();
-      return result; 
+      return result;
 
     } catch (error) {
       console.error("Submission error:", error);
