@@ -1,31 +1,53 @@
 // Backend API service for form submission
+// 🔴 Your Specific Script URL
 const API_BASE_URL = "https://script.google.com/macros/s/AKfycbxW9XRHoiXNyK4Hrv6VK9Pf2Ja9T21vd6APvslWHO3ReoVSbVSlrvL5TcFg0brvB9oa/exec";
 
 export const formService = {
   // Submit registration form
   async submitRegistration(formData) {
     const fd = new FormData();
-    const fullName = `${formData.firstName} ${formData.middleName || ''} ${formData.lastName}`.trim();
-    fd.append("fullName", fullName);
+
+    // 1. Send Names Separately (Updated)
+    fd.append("firstName", formData.firstName);
+    fd.append("middleName", formData.middleName || "");
+    fd.append("lastName", formData.lastName);
+
+    // 2. Standard Fields
     fd.append("email", formData.emailAddress);
     fd.append("phone", formData.phoneNo);
     fd.append("designation", formData.designation);
-    fd.append("organization", formData.organization || ""); // Added for mobile
+    
+    // 3. Organization Logic (Consolidated)
     fd.append("orgType", formData.organizationType);
+    // Checks both possible variable names to be safe
+    fd.append("orgName", formData.organizationName || formData.organization || ""); 
+    
     fd.append("city", formData.city);
     fd.append("programInterests", formData.attendingProgram);
     fd.append("category", formData.category);
+
+    // 4. Arrays to Strings
     fd.append("membership", (formData.membershipAffiliation || []).join(", "));
     fd.append("preferredDays", (formData.preferredDays || []).join(", "));
 
-    const response = await fetch(API_BASE_URL, {
-      method: "POST",
-      body: fd,
-    });
-    if (!response.ok) {
-      throw new Error("Failed to submit registration");
+    try {
+      const response = await fetch(API_BASE_URL, {
+        method: "POST",
+        body: fd,
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      // 5. Return the result (containing the ID)
+      const result = await response.json();
+      return result; 
+
+    } catch (error) {
+      console.error("Submission error:", error);
+      throw error;
     }
-    return await response.json();
   },
 
   // Validate email format

@@ -29,6 +29,7 @@ export default function MobileRegister({
                         onImageSelect={(file) => handleImageUpload({ target: { files: [file] } })}
                         previewUrl={profileImage}
                     />
+                    {errors.profileImage && <div className="text-red-500 text-xs text-center mt-1">{errors.profileImage}</div>}
 
                     <div className="form">
                         <FormField
@@ -57,14 +58,11 @@ export default function MobileRegister({
                             onChange={handleInputChange("designation")}
                         />
                         <FormField
-                            label="Organization"
+                            label="Organization Name"
                             required
-                            /* Since we don't have organization in state, we might need to skip or use a dummy */
-                            /* The image shows "Organization *". I'll add a dummy handler if needed or reuse existing if found */
-                            /* I'll use a local state or just not bind it effectively if the backend doesn't take it. */
-                            /* To avoid errors, I'll bind it to a dummy value or checking if 'organization' exists in formData */
                             value={formData.organization || ""}
-                            onChange={handleInputChange("organization") /* This acts as dummy if logic doesn't support it, or adds it to state */}
+                            onChange={handleInputChange("organization")}
+                            error={errors.organization}
                         />
                         <FormField
                             label="Type of Organization"

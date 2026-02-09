@@ -102,8 +102,13 @@ export default function Main() {
   };
 
 
+
   const validateForm = () => {
     const newErrors = {};
+
+    if (!profileImage) {
+      newErrors.profileImage = "Profile photo is required";
+    }
 
     if (!formData.firstName.trim()) {
       newErrors.firstName = "First name is required";
@@ -125,10 +130,10 @@ export default function Main() {
       newErrors.phoneNo = "Invalid phone number";
     }
 
-    // Only validate organization if it's being used (mostly mobile)
-    // or we can make it optional to match desktop. 
-    // However, mobile field is marked required.
-    // We'll skip strict validation here to avoid breaking desktop which ignores it.
+    // Organization Name validation
+    if (!formData.organization || !formData.organization.trim()) {
+      newErrors.organization = "Organization Name is required";
+    }
 
     if (!formData.organizationType) {
       newErrors.organizationType = "Organization type is required";
@@ -206,14 +211,15 @@ export default function Main() {
 
           {/* Left Form Section */}
           <div className="w-[556.158px] h-[703.264px] bg-[#1d1e20] rounded-[142.361px] absolute top-[160px] left-[100px] overflow-visible z-[9]">
-            <div className="w-[13px] h-[13px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/ZpGtYOibN1.png)] bg-cover bg-no-repeat absolute top-[66px] left-[151px] z-[44]" />
-            <div className="flex w-[379.63px] h-auto max-h-[569.846px] flex-col gap-[18.032px] items-start flex-nowrap absolute top-[66.436px] left-[83.519px] z-10 overflow-visible">
+
+            <div className="flex w-[379.63px] h-auto max-h-[750px] flex-col gap-[15px] items-start flex-nowrap absolute top-[66.436px] left-[83.519px] z-10 overflow-visible">
               <FormInput
                 label="First Name"
                 value={formData.firstName}
                 onChange={handleInputChange("firstName")}
                 placeholder="First Name"
                 error={errors.firstName}
+                required
               />
               <FormInput
                 label="Middle Name"
@@ -227,12 +233,22 @@ export default function Main() {
                 onChange={handleInputChange("lastName")}
                 placeholder="Last Name"
                 error={errors.lastName}
+                required
               />
               <FormInput
                 label="Designation"
                 value={formData.designation}
                 onChange={handleInputChange("designation")}
                 placeholder="Designation"
+                required
+              />
+              <FormInput
+                label="Organization Name"
+                value={formData.organization}
+                onChange={handleInputChange("organization")}
+                placeholder="Organization Name"
+                error={errors.organization}
+                required
               />
               <FormDropdown
                 label="Type of Organization"
@@ -241,6 +257,7 @@ export default function Main() {
                 placeholder="Organization type"
                 options={dropdownOptions.organizationTypes}
                 error={errors.organizationType}
+                required
               />
               <FormInput
                 label="Email Address"
@@ -249,12 +266,14 @@ export default function Main() {
                 placeholder="Email Address"
                 type="email"
                 error={errors.emailAddress}
+                required
               />
               <FormInput
                 label="City"
                 value={formData.city}
                 onChange={handleInputChange("city")}
                 placeholder="City"
+                required
               />
               <FormInput
                 label="Phone No"
@@ -263,14 +282,9 @@ export default function Main() {
                 placeholder="Phone No"
                 type="tel"
                 error={errors.phoneNo}
+                required
               />
             </div>
-            <div className="w-[13px] h-[13px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/Cxj7RG6rzV.png)] bg-cover bg-no-repeat absolute top-[213px] left-[151px] z-[45]" />
-            <div className="w-[13px] h-[13px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/YEg6juxd2T.png)] bg-cover bg-no-repeat absolute top-[287px] left-[158px] z-[46]" />
-            <div className="w-[13px] h-[13px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/ndzJ17O9yy.png)] bg-cover bg-no-repeat absolute top-[360px] left-[203px] z-[47]" />
-            <div className="w-[13px] h-[13px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/uw2gCQPWSr.png)] bg-cover bg-no-repeat absolute top-[434px] left-[170px] z-[48]" />
-            <div className="w-[13px] h-[13px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/FKOBnB9j5f.png)] bg-cover bg-no-repeat absolute top-[507px] left-[112px] z-[49]" />
-            <div className="w-[13px] h-[13px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/iXLDiGnrJU.png)] bg-cover bg-no-repeat absolute top-[581px] left-[145px] z-50" />
           </div>
 
           <input
@@ -287,9 +301,14 @@ export default function Main() {
             {profileImage ? (
               <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
             ) : (
-              <div className="w-full h-full bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/xH75HzMykW.png)] bg-cover bg-no-repeat" />
+              <div className={`w-full h-full bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/xH75HzMykW.png)] bg-cover bg-no-repeat ${errors.profileImage ? "border-2 border-red-500 rounded-full" : ""}`} />
             )}
           </div>
+          {errors.profileImage && (
+            <span className="absolute top-[300px] left-[919.051px] text-[12px] text-red-500 font-['Montserrat'] z-[54]">
+              {errors.profileImage}
+            </span>
+          )}
 
           {/* Right Form Section */}
           <div className="w-[556px] h-[601px] bg-[#1d1e20] rounded-[142.361px] absolute top-[250px] left-[713px] overflow-visible z-[52]">

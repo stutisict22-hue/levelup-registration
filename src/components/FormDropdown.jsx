@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-export default function FormDropdown({ label, value, onChange, placeholder, options, error, multiSelect = false }) {
+export default function FormDropdown({ label, value, onChange, placeholder, options, error, multiSelect = false, required }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -45,9 +45,9 @@ export default function FormDropdown({ label, value, onChange, placeholder, opti
   };
 
   return (
-    <div className="flex flex-col gap-[9.235px] items-start w-full flex-nowrap relative" ref={dropdownRef}>
+    <div className="flex flex-col gap-[5px] items-start w-full flex-nowrap relative" ref={dropdownRef}>
       <span className="flex w-[155.143px] h-[13px] justify-start items-start shrink-0 basis-auto font-['Montserrat'] text-[11.081676483154297px] font-normal leading-[13px] text-[#fff] relative text-left whitespace-nowrap">
-        {label}
+        {label} {required && <span className="text-red-500 ml-1">*</span>}
       </span>
       <div
         className={`flex w-full h-[33.218px] pt-[7.388px] pr-[18.469px] pb-[7.388px] pl-[18.469px] gap-[9.235px] items-center shrink-0 flex-nowrap bg-[#23282e] ${isOpen ? "rounded-t-[16px] rounded-b-none" : "rounded-[55.408px]"} relative overflow-visible cursor-pointer transition-all`}
@@ -74,9 +74,8 @@ export default function FormDropdown({ label, value, onChange, placeholder, opti
             >
               {multiSelect && (
                 <div
-                  className={`w-[14px] h-[14px] rounded-[3px] border border-[#30dfa0] flex items-center justify-center shrink-0 ${
-                    isSelected(option) ? "bg-[#30dfa0]" : "bg-transparent"
-                  }`}
+                  className={`w-[14px] h-[14px] rounded-[3px] border border-[#30dfa0] flex items-center justify-center shrink-0 ${isSelected(option) ? "bg-[#30dfa0]" : "bg-transparent"
+                    }`}
                 >
                   {isSelected(option) && (
                     <svg
@@ -104,7 +103,7 @@ export default function FormDropdown({ label, value, onChange, placeholder, opti
       )}
 
       {error && (
-        <span className="text-[10px] text-red-400 font-['Montserrat']">
+        <span className="text-[10px] text-red-400 font-['Montserrat'] absolute top-full left-0 mt-[2px] z-20">
           {error}
         </span>
       )}
