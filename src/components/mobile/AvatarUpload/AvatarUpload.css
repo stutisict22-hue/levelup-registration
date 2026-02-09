@@ -1,0 +1,19 @@
+.avatar-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 40px;
+}
+
+.avatar-circle {
+    width: 90px;
+    height: 90px;
+    background: #5c5c5c;
+    /* Dark gray circle */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}

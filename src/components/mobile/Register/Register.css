@@ -1,0 +1,159 @@
+.register-page {
+    height: 100vh;
+    background: url('/assets/mobile-bg.png') no-repeat center center/cover;
+    position: relative;
+    overflow: hidden;
+    /* Center the inner form and add spacing */
+    display: flex;
+    flex-direction: column;
+    /* Stack form and footer */
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.scroll-container {
+    width: 100%;
+    flex: 1;
+    /* Take available vertical space */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 0;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 10px;
+    /* Space between card and footer */
+}
+
+/* ... content padding ... */
+
+/* ... */
+
+.terms p {
+    font-size: 9px;
+    color: #fff;
+    opacity: 0.8;
+    line-height: 1.5;
+    text-align: justify;
+    /* Justified as requested */
+}
+
+/* ... */
+
+.copyright-footer {
+    text-align: center;
+    color: #fff;
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    flex-shrink: 0;
+    /* Don't shrink */
+    z-index: 20;
+}
+
+/* ... content padding ... */
+
+.fixed-logo-bottom-left {
+    position: absolute;
+    bottom: 25px;
+    left: 5px;
+    /* Adjusted to overlap the edge nicely */
+    width: 70px;
+    /* Smaller size as requested */
+    height: auto;
+    z-index: 200;
+    pointer-events: auto;
+    /* Enable clicks */
+    cursor: pointer;
+}
+
+.content-padding {
+    padding: 0 24px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.terms {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+.terms-checkbox {
+    min-width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    accent-color: #66ffb2;
+    background: transparent;
+    border: 1px solid #66ffb2;
+    border-radius: 4px;
+}
+
+.terms p {
+    font-size: 9px;
+    color: #fff;
+    opacity: 0.8;
+    line-height: 1.5;
+    text-align: center;
+    /* Changed to center as requested */
+}
+
+/* ... existing styles ... */
+
+/* Cleaned up below */
+
+/* Removed fixed submit overlay */
+.submit-btn {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #66ffb2;
+    /* Bright Green */
+    border: none;
+    color: #1e1e1e;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    pointer-events: auto;
+    /* Re-enable clicks */
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-btn:active {
+    transform: scale(0.95);
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    filter: grayscale(0.5);
+}
+
+/* Renamed/Added terms-text to match JSX */
+.terms-text {
+    margin-top: 60px;
+    /* Pushing terms down */
+}
+
+.submit-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    /* Pushing button down further */
+    margin-bottom: 40px;
+}
+
+/* Logo style updated in the top block replacement */
