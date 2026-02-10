@@ -1,6 +1,7 @@
 // Backend API service for form submission
-// 🔴 Your Specific Script URL
-const API_BASE_URL = "https://script.google.com/macros/s/AKfycbxW9XRHoiXNyK4Hrv6VK9Pf2Ja9T21vd6APvslWHO3ReoVSbVSlrvL5TcFg0brvB9oa/exec";
+// Uses environment variable for deployment-specific endpoints
+// Production URL is used as fallback if environment variable is not set
+const API_BASE_URL = import.meta.env.VITE_FORM_ENDPOINT || "https://script.google.com/macros/s/AKfycbxW9XRHoiXNyK4Hrv6VK9Pf2Ja9T21vd6APvslWHO3ReoVSbVSlrvL5TcFg0brvB9oa/exec";
 
 export const formService = {
   // Submit registration form
