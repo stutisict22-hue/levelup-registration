@@ -45,6 +45,10 @@ export default function Main() {
       const reader = new FileReader();
       reader.onloadend = () => {
         setProfileImage(reader.result);
+        setSubmitStatus(null);
+        if (errors.profileImage) {
+          setErrors((prev) => ({ ...prev, profileImage: "" }));
+        }
       };
       reader.readAsDataURL(file);
     }
@@ -61,6 +65,7 @@ export default function Main() {
         [field]: "",
       });
     }
+    setSubmitStatus(null);
   };
 
   const handleDropdownChange = (field) => (value) => {
@@ -74,6 +79,7 @@ export default function Main() {
         [field]: "",
       });
     }
+    setSubmitStatus(null);
   };
 
   const handleCheckboxChange = (field) => (values) => {
@@ -87,6 +93,7 @@ export default function Main() {
         [field]: "",
       });
     }
+    setSubmitStatus(null);
   };
   const handleTermsChange = (e) => {
     setFormData({
@@ -205,14 +212,14 @@ export default function Main() {
       <div className="hidden md:block main-container w-[1440px] h-[1033px] bg-[#19191a] relative overflow-hidden mx-auto my-0">
         <div className="w-[1366.667px] h-[931.042px] relative z-[85] mt-[51px] mr-0 mb-0 ml-[35px]">
           <div className="w-[1366.667px] h-[931.042px] bg-[#000] opacity-70 absolute top-0 left-0 overflow-hidden z-[2]" />
-          <a href="https://gamingsociety.in/" target="_blank" rel="noopener noreferrer" className="w-[111px] h-[55.192px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/GOVpfe0jQC.png)] bg-cover bg-no-repeat absolute top-[21px] left-[23px] z-[4] cursor-pointer hover:opacity-80 transition-opacity" />
-          <a href="https://www.cii.in/" target="_blank" rel="noopener noreferrer" className="w-[72.39px] h-[47.454px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/32gn2MRMHb.png)] bg-cover bg-no-repeat absolute top-[21px] left-[1268.861px] z-[3] cursor-pointer hover:opacity-80 transition-opacity" />
+          <a href="https://www.cii.in/" target="_blank" rel="noopener noreferrer" className="w-[248px] h-[132px] bg-[url('/CII%20Logo.png')] bg-contain bg-center bg-no-repeat absolute top-[5px] left-[23px] z-[4] cursor-pointer hover:opacity-80 transition-opacity" />
+          <a href="https://gamingsociety.in/" target="_blank" rel="noopener noreferrer" className="w-[111px] h-[55.192px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/GOVpfe0jQC.png)] bg-cover bg-no-repeat absolute top-[21px] left-[1230px] z-[3] cursor-pointer hover:opacity-80 transition-opacity" />
           <div className="w-[355.494px] h-[123px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/KUwDGqOFOj.png)] bg-cover bg-no-repeat absolute top-[24px] left-[505px] z-[85]" />
 
           {/* Left Form Section */}
           <div className="w-[556.158px] h-[703.264px] bg-[#1d1e20] rounded-[142.361px] absolute top-[160px] left-[100px] overflow-visible z-[9]">
 
-            <div className="flex w-[379.63px] h-auto max-h-[750px] flex-col gap-[15px] items-start flex-nowrap absolute top-[66.436px] left-[83.519px] z-10 overflow-visible">
+            <div className="flex w-[379.63px] h-auto max-h-[750px] flex-col gap-[15px] items-start flex-nowrap absolute top-[36px] left-[83.519px] z-10 overflow-visible">
               <FormInput
                 label="First Name"
                 value={formData.firstName}
@@ -305,24 +312,26 @@ export default function Main() {
             )}
           </div>
           {errors.profileImage && (
-            <span className="absolute top-[300px] left-[919.051px] text-[12px] text-red-500 font-['Montserrat'] z-[54]">
+            <span className="absolute top-[220px] left-[1060px] text-[12px] text-red-500 font-['Montserrat'] z-[54] w-[200px]">
               {errors.profileImage}
             </span>
           )}
 
           {/* Right Form Section */}
           <div className="w-[556px] h-[601px] bg-[#1d1e20] rounded-[142.361px] absolute top-[250px] left-[713px] overflow-visible z-[52]">
-            <div className="w-[379.63px] h-auto relative z-[78] mt-[68px] mr-0 mb-0 ml-[88px]">
-              <div className="w-[13px] h-[13px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/VDDhEiHkwr.png)] bg-cover bg-no-repeat relative z-[75] mt-0 mr-0 mb-0 ml-[114px]" />
-              <div className="w-[13px] h-[13px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/rhoA26AMsq.png)] bg-cover bg-no-repeat relative z-[76] mt-[60px] mr-0 mb-0 ml-[57px]" />
-              <div className="w-[13px] h-[13px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/0b8ATWzYsa.png)] bg-cover bg-no-repeat relative z-[77] mt-[61px] mr-0 mb-0 ml-[132px]" />
-              <div className="w-[13px] h-[13px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/FhDf31eWtS.png)] bg-cover bg-no-repeat relative z-[78] mt-[60px] mr-0 mb-0 ml-[152px]" />
+            <div className="w-[379.63px] h-auto relative z-[78] mt-[38px] mr-0 mb-0 ml-[88px]">
+              {/* Spacer to reserve vertical space for the absolutely-positioned form fields */}
+              <div className="h-[246px]" />
               <div className="flex w-[379.63px] h-auto flex-col gap-[18.032px] items-start flex-nowrap absolute top-0 left-0 z-[150] overflow-visible">
-                <FormInput
-                  label="Attending Program"
+                <FormDropdown
+                  label="Attending Program For"
                   value={formData.attendingProgram}
-                  onChange={handleInputChange("attendingProgram")}
+                  onChange={(val) => setFormData({ ...formData, attendingProgram: val })}
                   placeholder="Attending Program"
+                  options={dropdownOptions.attendingPrograms}
+                  error={errors.attendingProgram}
+                  required
+                  multiSelect={true}
                 />
                 <FormDropdown
                   label="Category"
@@ -331,6 +340,7 @@ export default function Main() {
                   placeholder="Category"
                   options={dropdownOptions.categories}
                   error={errors.category}
+                  required
                 />
                 <FormDropdown
                   label="Membership Affiliation"
@@ -339,6 +349,7 @@ export default function Main() {
                   placeholder="Membership Affiliation"
                   options={dropdownOptions.membershipAffiliations}
                   error={errors.membershipAffiliation}
+                  required
                   multiSelect={true}
                 />
                 <FormDropdown
@@ -348,6 +359,7 @@ export default function Main() {
                   placeholder="Preferred Day(s) to Attend"
                   options={dropdownOptions.preferredDays}
                   error={errors.preferredDays}
+                  required
                   multiSelect={true}
                 />
               </div>

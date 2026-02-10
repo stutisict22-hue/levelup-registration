@@ -23,7 +23,7 @@ export const formService = {
     fd.append("orgName", formData.organizationName || formData.organization || "");
 
     fd.append("city", formData.city);
-    fd.append("programInterests", formData.attendingProgram);
+    fd.append("programInterests", Array.isArray(formData.attendingProgram) ? formData.attendingProgram.join(", ") : formData.attendingProgram);
     fd.append("category", formData.category);
 
     // 4. Arrays to Strings
@@ -86,5 +86,14 @@ export const dropdownOptions = {
     "20th March 2026",
     "21st March 2026",
     "22nd March 2026",
+  ],
+
+  attendingPrograms: [
+    "B2B connect",
+    "Esports",
+    "Exhibition",
+    "Job fair",
+    "Masterclass",
+    "All",
   ],
 };

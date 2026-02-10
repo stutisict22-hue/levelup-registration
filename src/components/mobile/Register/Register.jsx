@@ -96,10 +96,12 @@ export default function MobileRegister({
                             type="tel"
                         />
                         <FormField
-                            label="Attending Program"
-                            required
+                            label="Attending Program For"
+                            type="multiselect"
+                            options={dropdownOptions.attendingPrograms}
                             value={formData.attendingProgram}
-                            onChange={handleInputChange("attendingProgram")}
+                            onChange={(val) => handleCheckboxChange("attendingProgram")(val)}
+                            required
                         />
                         <FormField
                             label="Category"

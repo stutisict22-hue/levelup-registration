@@ -2,10 +2,11 @@ import React from "react";
 
 export default function FormInput({ label, value, onChange, placeholder, type = "text", error, required }) {
   return (
-    <div className="flex flex-col gap-[5px] items-start w-full flex-nowrap relative">
-      <span className="flex w-[155.143px] h-[13px] justify-start items-start shrink-0 basis-auto font-['Montserrat'] text-[11.081676483154297px] font-normal leading-[13px] text-[#fff] relative text-left whitespace-nowrap">
-        {label} {required && <span className="text-red-500 ml-1">*</span>}
-      </span>
+    <div className="flex flex-col gap-[6px] items-start w-full flex-nowrap relative">
+      <label className="flex items-center gap-1 font-['Montserrat'] text-[12px] leading-[16px] text-[#fff]">
+        <span className="align-middle">{label}</span>
+        {required && <span className="text-[#ff5c5c] text-[14px] leading-[16px] align-middle">*</span>}
+      </label>
       <div className="flex w-full h-[33.218px] pt-[7.388px] pr-[18.469px] pb-[7.388px] pl-[18.469px] gap-[9.235px] items-center shrink-0 flex-nowrap bg-[#23282e] rounded-[55.408px] relative overflow-hidden">
         <input
           type={type}
