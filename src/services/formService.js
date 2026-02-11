@@ -95,6 +95,5 @@ export const dropdownOptions = {
     "Exhibition",
     "Job fair",
     "Masterclass",
-    "All",
   ],
 };

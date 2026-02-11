@@ -321,7 +321,7 @@ export default function Main() {
           <div className="w-[556px] h-[601px] bg-[#1d1e20] rounded-[142.361px] absolute top-[250px] left-[713px] overflow-visible z-[52]">
             <div className="w-[379.63px] h-auto relative z-[78] mt-[38px] mr-0 mb-0 ml-[88px]">
               {/* Spacer to reserve vertical space for the absolutely-positioned form fields */}
-              <div className="h-[246px]" />
+              <div className="h-[340px]" />
               <div className="flex w-[379.63px] h-auto flex-col gap-[18.032px] items-start flex-nowrap absolute top-0 left-0 z-[150] overflow-visible">
                 <FormDropdown
                   label="Attending Program For"
@@ -366,7 +366,7 @@ export default function Main() {
             </div>
 
             {/* Terms and Conditions Checkbox */}
-            <div className="flex gap-[10px] items-start relative z-[50] mt-[65px] ml-[55px] w-[410px]">
+            <div className="flex gap-[10px] items-start relative z-[50] mt-[10px] ml-[55px] w-[410px]">
               <div
                 className={`w-[20px] min-w-[20px] h-[20px] shrink-0 rounded-[6px] border-solid border ${formData.agreedToTerms ? "bg-[#30dfa0]" : ""
                   } border-[#30dfa0] cursor-pointer flex items-center justify-center`}
@@ -425,7 +425,7 @@ export default function Main() {
               </p>
             </div>
             {errors.agreedToTerms && (
-              <span className="text-[10px] text-red-400 font-['Montserrat'] ml-[55px] w-[410px] mt-[4px] block">
+              <span className="text-[10px] text-red-400 font-['Montserrat'] ml-[88px] w-[410px] mt-[4px] block">
                 {errors.agreedToTerms}
               </span>
             )}
