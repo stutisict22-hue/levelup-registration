@@ -13,13 +13,12 @@
 }
 
 .logo-left {
-    height: 35px;
-    /* Adjust based on image ratio */
+    height: 30px;
     object-fit: contain;
 }
 
 .logo-right {
-    height: 35px;
+    height: 30px;
     object-fit: contain;
 }
 

@@ -25,6 +25,7 @@ export default function MobileRegister({
                 <Header />
 
                 <div className="content-padding">
+                    <p className="text-white text-center mt-1 font-['Montserrat'] text-[10px]">Upload your profile photo</p>
                     <AvatarUpload
                         onImageSelect={(file) => handleImageUpload({ target: { files: [file] } })}
                         previewUrl={profileImage}
@@ -133,7 +134,7 @@ export default function MobileRegister({
 
                         <div className="terms-text">
                             <label className="flex items-start gap-3 cursor-pointer">
-                                <div className={`w-5 h-5 rounded border border-[#30dfa0] flex items-center justify-center shrink-0 mt-1 ${formData.agreedToTerms ? 'bg-[#30dfa0]' : 'transparent'}`}>
+                                <div className={`w-5 h-5 rounded border border-brand-primary flex items-center justify-center shrink-0 mt-1 ${formData.agreedToTerms ? 'bg-brand-primary' : 'transparent'}`}>
                                     {formData.agreedToTerms && <span className="text-black text-xs font-bold">✓</span>}
                                 </div>
                                 <input
@@ -178,9 +179,9 @@ export default function MobileRegister({
             {/* Success Modal - Mobile Version */}
             {showSuccessModal && (
                 <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-[500] p-4">
-                    <div className="bg-[#1d1e20] rounded-[20px] p-6 w-full max-w-sm flex flex-col items-center gap-5 shadow-2xl border border-[#333]">
+                    <div className="bg-[#0A1830] rounded-[20px] p-6 w-full max-w-sm flex flex-col items-center gap-5 shadow-2xl border border-[#333]">
                         {/* Checkmark Icon */}
-                        <div className="w-[80px] h-[80px] rounded-full border-[3px] border-[#30dfa0] flex items-center justify-center shrink-0">
+                        <div className="w-[80px] h-[80px] rounded-full border-[3px] border-brand-primary flex items-center justify-center shrink-0">
                             <svg
                                 width="40"
                                 height="40"
@@ -190,7 +191,7 @@ export default function MobileRegister({
                             >
                                 <path
                                     d="M20 6L9 17L4 12"
-                                    stroke="#30dfa0"
+                                    stroke="var(--color-brand-primary, #38BDF8)"
                                     strokeWidth="3"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
@@ -209,8 +210,8 @@ export default function MobileRegister({
                         </p>
 
                         {/* Registration ID Box */}
-                        <div className="w-full py-3 px-4 border border-[#30dfa0] rounded-[15px] text-center bg-[#30dfa0]/10">
-                            <span className="font-['Montserrat'] text-[14px] font-semibold text-[#30dfa0] break-words">
+                        <div className="w-full py-3 px-4 border border-brand-primary rounded-[15px] text-center bg-brand-primary/10">
+                            <span className="font-['Montserrat'] text-[14px] font-semibold text-brand-primary break-words">
                                 ID: {registrationId}
                             </span>
                         </div>
@@ -223,7 +224,7 @@ export default function MobileRegister({
                         {/* Close Button */}
                         <button
                             onClick={onCloseSuccess}
-                            className="mt-2 w-full py-3 bg-gradient-to-r from-[#30dfa0] to-[#20b080] rounded-[30px] font-['Montserrat'] text-[16px] font-semibold text-[#1d1e20] hover:opacity-90 transition-opacity active:scale-95"
+                            className="mt-2 w-full py-3 bg-gradient-to-r from-brand-primary to-brand-accent-cyan rounded-[30px] font-['Montserrat'] text-[16px] font-semibold text-[#1d1e20] hover:opacity-90 transition-opacity active:scale-95"
                         >
                             Close
                         </button>

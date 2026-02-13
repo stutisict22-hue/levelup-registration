@@ -209,15 +209,15 @@ export default function Main() {
 
   return (
     <>
-      <div className="hidden md:block main-container w-[1440px] h-[1033px] bg-[#19191a] relative overflow-hidden mx-auto my-0">
-        <div className="w-[1366.667px] h-[931.042px] relative z-[85] mt-[51px] mr-0 mb-0 ml-[35px]">
-          <div className="w-[1366.667px] h-[931.042px] bg-[#000] opacity-70 absolute top-0 left-0 overflow-hidden z-[2]" />
-          <a href="https://www.cii.in/" target="_blank" rel="noopener noreferrer" className="w-[248px] h-[132px] bg-[url('/CII%20Logo.png')] bg-contain bg-center bg-no-repeat absolute top-[5px] left-[23px] z-[4] cursor-pointer hover:opacity-80 transition-opacity" />
-          <a href="https://gamingsociety.in/" target="_blank" rel="noopener noreferrer" className="w-[111px] h-[55.192px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/GOVpfe0jQC.png)] bg-cover bg-no-repeat absolute top-[21px] left-[1230px] z-[3] cursor-pointer hover:opacity-80 transition-opacity" />
-          <div className="w-[355.494px] h-[123px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/KUwDGqOFOj.png)] bg-cover bg-no-repeat absolute top-[24px] left-[505px] z-[85]" />
+      <div className="hidden md:block main-container w-[153.85%] -ml-[26.92%] h-[980px] bg-black relative overflow-hidden my-0 origin-top scale-[0.65] xl:scale-100 xl:w-full xl:ml-0">
+        <div className="w-[1366.667px] h-[920px] relative z-[85] mt-[20px] mx-auto">
+          <div className="w-[1366.667px] h-[920px] bg-[#000] opacity-70 absolute top-0 left-0 overflow-hidden z-[2]" />
+          <a href="https://www.cii.in/" target="_blank" rel="noopener noreferrer" className="w-[170px] h-[90px] bg-[url('/CII%20Logo.png')] bg-contain bg-center bg-no-repeat absolute top-[15px] left-[23px] z-[4] cursor-pointer hover:opacity-80 transition-opacity" />
+          <a href="https://gamingsociety.in/" target="_blank" rel="noopener noreferrer" className="w-[120px] h-[60px] bg-[url('/assets/idges.png')] bg-contain bg-center bg-no-repeat absolute top-[21px] left-[1230px] z-[3] cursor-pointer hover:opacity-80 transition-opacity" />
+          <div className="w-[355.494px] h-[123px] bg-[url('/assets/levelup.png')] bg-cover bg-no-repeat absolute top-[24px] left-[505px] z-[85]" />
 
           {/* Left Form Section */}
-          <div className="w-[556.158px] h-[703.264px] bg-[#1d1e20] rounded-[142.361px] absolute top-[160px] left-[100px] overflow-visible z-[9]">
+          <div className="w-[556.158px] h-[703.264px] bg-[#0A1830] rounded-[142.361px] absolute top-[160px] left-[100px] overflow-visible z-[9]">
 
             <div className="flex w-[379.63px] h-auto max-h-[750px] flex-col gap-[15px] items-start flex-nowrap absolute top-[36px] left-[83.519px] z-10 overflow-visible">
               <FormInput
@@ -301,6 +301,9 @@ export default function Main() {
             accept="image/*"
             className="hidden"
           />
+          <span className="absolute top-[135px] left-[919px] w-[130px] text-center text-white font-['Montserrat'] text-[12px] z-[54]">
+            Upload your profile photo
+          </span>
           <div
             className="w-[129.223px] h-[129.223px] rounded-full absolute top-[160px] left-[919.051px] z-[53] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
             onClick={() => fileInputRef.current?.click()}
@@ -318,7 +321,7 @@ export default function Main() {
           )}
 
           {/* Right Form Section */}
-          <div className="w-[556px] min-h-[601px] h-auto pb-[50px] bg-[#1d1e20] rounded-[142.361px] absolute top-[250px] left-[713px] overflow-visible z-[52]">
+          <div className="w-[556px] min-h-[601px] h-auto pb-[50px] bg-[#0A1830] rounded-[142.361px] absolute top-[250px] left-[713px] overflow-visible z-[52]">
             <div className="w-[379.63px] h-auto relative z-[78] mt-[55px] mr-0 mb-0 ml-[88px]">
               <div className="flex w-[379.63px] h-auto flex-col gap-[18.032px] items-start flex-nowrap relative z-[150] overflow-visible">
                 <FormDropdown
@@ -366,8 +369,8 @@ export default function Main() {
             {/* Terms and Conditions Checkbox */}
             <div className="flex gap-[10px] items-start relative z-[50] mt-[18px] ml-[55px] w-[410px]">
               <div
-                className={`w-[20px] min-w-[20px] h-[20px] shrink-0 rounded-[6px] border-solid border ${formData.agreedToTerms ? "bg-[#30dfa0]" : ""
-                  } border-[#30dfa0] cursor-pointer flex items-center justify-center`}
+                className={`w-[20px] min-w-[20px] h-[20px] shrink-0 rounded-[6px] border-solid border ${formData.agreedToTerms ? "bg-brand-primary" : ""
+                  } border-brand-primary cursor-pointer flex items-center justify-center`}
                 onClick={() => {
                   setFormData({
                     ...formData,
@@ -460,17 +463,17 @@ export default function Main() {
 
           <a href="https://www.sportskeyz.com/" target="_blank" rel="noopener noreferrer" className="w-[111px] h-[65.46px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/ZDsnY5Qrg9.png)] bg-cover bg-no-repeat absolute top-[851.191px] left-[23px] z-[5] cursor-pointer hover:opacity-80 transition-opacity" />
         </div>
-        <span className="flex w-[1212px] h-[20px] justify-center items-start font-['Montserrat'] text-[16px] font-medium leading-[19.504px] text-[#fff] relative text-center whitespace-nowrap z-[6] mt-[9.958px] mr-0 mb-0 ml-[112px]">
+        <span className="flex w-[1212px] h-[20px] justify-center items-start font-['Montserrat'] text-[16px] font-medium leading-[19.504px] text-[#fff] relative text-center whitespace-nowrap z-[6] mt-[10px] mr-0 mb-0 ml-[112px]">
           © 2026 <a href="https://www.sportskeyz.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#30dfa0] transition-colors">SportsKeyz</a>. Powered by SporTech Innovation. All rights reserved.
         </span>
-        <div className="w-[1442px] h-[1442px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/pMwY8Mpfqo.png)] bg-cover bg-no-repeat absolute top-[-4px] left-0" />
+        <div className="w-[1442px] h-[1442px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/pMwY8Mpfqo.png)] bg-cover bg-no-repeat absolute top-[-4px] left-1/2 -translate-x-1/2 w-full" />
 
         {/* Success Modal */}
         {showSuccessModal && (
           <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-[500]">
-            <div className="bg-[#1d1e20] rounded-[20px] p-[40px] w-[500px] flex flex-col items-center gap-[20px] shadow-2xl">
+            <div className="bg-[#0A1830] rounded-[20px] p-[40px] w-[500px] flex flex-col items-center gap-[20px] shadow-2xl">
               {/* Checkmark Icon */}
-              <div className="w-[80px] h-[80px] rounded-full border-[3px] border-[#30dfa0] flex items-center justify-center">
+              <div className="w-[80px] h-[80px] rounded-full border-[3px] border-brand-primary flex items-center justify-center">
                 <svg
                   width="40"
                   height="40"
@@ -480,7 +483,7 @@ export default function Main() {
                 >
                   <path
                     d="M20 6L9 17L4 12"
-                    stroke="#30dfa0"
+                    stroke="var(--color-brand-primary, #38BDF8)"
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -499,8 +502,8 @@ export default function Main() {
               </p>
 
               {/* Registration ID Box */}
-              <div className="w-full py-[15px] px-[20px] border border-[#30dfa0] rounded-[30px] text-center">
-                <span className="font-['Montserrat'] text-[16px] font-semibold text-[#30dfa0]">
+              <div className="w-full py-[15px] px-[20px] border border-brand-primary rounded-[30px] text-center">
+                <span className="font-['Montserrat'] text-[16px] font-semibold text-brand-primary">
                   Your Registration ID: {registrationId}
                 </span>
               </div>
@@ -516,7 +519,7 @@ export default function Main() {
                   setShowSuccessModal(false);
                   setProfileImage(null);
                 }}
-                className="mt-[10px] px-[40px] py-[12px] bg-gradient-to-r from-[#30dfa0] to-[#20b080] rounded-[30px] font-['Montserrat'] text-[16px] font-semibold text-[#1d1e20] hover:opacity-90 transition-opacity cursor-pointer"
+                className="mt-[10px] px-[40px] py-[12px] bg-gradient-to-r from-brand-primary to-brand-accent-cyan rounded-[30px] font-['Montserrat'] text-[16px] font-semibold text-[#1d1e20] hover:opacity-90 transition-opacity cursor-pointer"
               >
                 Close
               </button>

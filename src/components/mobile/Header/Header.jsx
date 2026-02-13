@@ -5,7 +5,7 @@ export default function Header() {
         <header className="header">
             <div className="logos-top">
                 <a href="https://www.cii.in/" target="_blank" rel="noopener noreferrer">
-                    <img src="/CII Logo.png" alt="CII" className="logo-left" style={{ height: '45px' }} />
+                    <img src="/CII Logo.png" alt="CII" className="logo-left" />
                 </a>
                 <a href="https://gamingsociety.in/" target="_blank" rel="noopener noreferrer">
                     <img src="/assets/idges.png" alt="IDGES" className="logo-right" />
@@ -14,9 +14,8 @@ export default function Header() {
 
             <div className="header-center">
                 <a href="https://gamingsociety.in/" target="_blank" rel="noopener noreferrer">
-                    <img src="/assets/levelup.png" alt="Level Up" />
+                    <img src="/assets/levelup.png" alt="Level Up" style={{ height: '70px', marginTop: '5px' }} />
                 </a>
-                <p>EMPOWERING THE FUTURE OF GAMING</p>
             </div>
         </header>
     );
