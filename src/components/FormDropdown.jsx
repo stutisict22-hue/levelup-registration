@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-export default function FormDropdown({ label, value, onChange, placeholder, options, error, multiSelect = false, required }) {
+export default function FormDropdown({ label, value, onChange, placeholder, options, error, multiSelect = false, required, labelColor = "text-[#fff]" }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -46,7 +46,7 @@ export default function FormDropdown({ label, value, onChange, placeholder, opti
 
   return (
     <div className="flex flex-col gap-[6px] items-start w-full flex-nowrap relative" ref={dropdownRef}>
-      <label className="flex items-center gap-1 font-['Montserrat'] text-[12px] leading-[16px] text-[#fff]">
+      <label className={`flex items-center gap-1 font-['Montserrat'] text-[12px] leading-[16px] ${labelColor}`}>
         <span className="align-middle">{label}</span>
         {required && <span className="text-[#ff5c5c] text-[14px] leading-[16px] align-middle">*</span>}
       </label>

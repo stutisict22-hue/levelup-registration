@@ -209,15 +209,15 @@ export default function Main() {
 
   return (
     <>
-      <div className="hidden md:block main-container w-[153.85%] -ml-[26.92%] h-[980px] bg-black relative overflow-hidden my-0 origin-top scale-[0.65] xl:scale-100 xl:w-full xl:ml-0">
+      <div className="hidden md:block main-container w-[153.85%] -ml-[26.92%] h-[980px] bg-[#0A1830] relative overflow-hidden my-0 origin-top scale-[0.65] xl:scale-100 xl:w-full xl:ml-0">
         <div className="w-[1366.667px] h-[920px] relative z-[85] mt-[20px] mx-auto">
-          <div className="w-[1366.667px] h-[920px] bg-[#000] opacity-70 absolute top-0 left-0 overflow-hidden z-[2]" />
+          <div className="w-[1366.667px] h-[920px] bg-[#0A1830] opacity-70 absolute top-0 left-0 overflow-hidden z-[2]" />
           <a href="https://www.cii.in/" target="_blank" rel="noopener noreferrer" className="w-[170px] h-[90px] bg-[url('/CII%20Logo.png')] bg-contain bg-center bg-no-repeat absolute top-[15px] left-[23px] z-[4] cursor-pointer hover:opacity-80 transition-opacity" />
           <a href="https://gamingsociety.in/" target="_blank" rel="noopener noreferrer" className="w-[120px] h-[60px] bg-[url('/assets/idges.png')] bg-contain bg-center bg-no-repeat absolute top-[21px] left-[1230px] z-[3] cursor-pointer hover:opacity-80 transition-opacity" />
-          <div className="w-[355.494px] h-[123px] bg-[url('/assets/levelup.png')] bg-cover bg-no-repeat absolute top-[24px] left-[505px] z-[85]" />
+          <img src="/levelup-clean.png" alt="Level Up" className="absolute top-[24px] left-[505px] z-[85] h-[123px] w-[355.494px] object-contain" />
 
           {/* Left Form Section */}
-          <div className="w-[556.158px] h-[703.264px] bg-[#0A1830] rounded-[142.361px] absolute top-[160px] left-[100px] overflow-visible z-[9]">
+          <div className="w-[556.158px] h-[703.264px] bg-[#9e9e9e] rounded-[142.361px] absolute top-[160px] left-[100px] overflow-visible z-[9]">
 
             <div className="flex w-[379.63px] h-auto max-h-[750px] flex-col gap-[15px] items-start flex-nowrap absolute top-[36px] left-[83.519px] z-10 overflow-visible">
               <FormInput
@@ -227,12 +227,14 @@ export default function Main() {
                 placeholder="First Name"
                 error={errors.firstName}
                 required
+                labelColor="text-[rgb(10,24,48)]"
               />
               <FormInput
                 label="Middle Name"
                 value={formData.middleName}
                 onChange={handleInputChange("middleName")}
                 placeholder="Middle Name"
+                labelColor="text-[rgb(10,24,48)]"
               />
               <FormInput
                 label="Last Name"
@@ -241,6 +243,7 @@ export default function Main() {
                 placeholder="Last Name"
                 error={errors.lastName}
                 required
+                labelColor="text-[rgb(10,24,48)]"
               />
               <FormInput
                 label="Designation"
@@ -248,6 +251,7 @@ export default function Main() {
                 onChange={handleInputChange("designation")}
                 placeholder="Designation"
                 required
+                labelColor="text-[rgb(10,24,48)]"
               />
               <FormInput
                 label="Organization Name"
@@ -256,6 +260,7 @@ export default function Main() {
                 placeholder="Organization Name"
                 error={errors.organization}
                 required
+                labelColor="text-[rgb(10,24,48)]"
               />
               <FormDropdown
                 label="Type of Organization"
@@ -265,6 +270,7 @@ export default function Main() {
                 options={dropdownOptions.organizationTypes}
                 error={errors.organizationType}
                 required
+                labelColor="text-[rgb(10,24,48)]"
               />
               <FormInput
                 label="Email Address"
@@ -274,6 +280,7 @@ export default function Main() {
                 type="email"
                 error={errors.emailAddress}
                 required
+                labelColor="text-[rgb(10,24,48)]"
               />
               <FormInput
                 label="City"
@@ -281,6 +288,7 @@ export default function Main() {
                 onChange={handleInputChange("city")}
                 placeholder="City"
                 required
+                labelColor="text-[rgb(10,24,48)]"
               />
               <FormInput
                 label="Phone No"
@@ -290,6 +298,7 @@ export default function Main() {
                 type="tel"
                 error={errors.phoneNo}
                 required
+                labelColor="text-[rgb(10,24,48)]"
               />
             </div>
           </div>
@@ -301,7 +310,7 @@ export default function Main() {
             accept="image/*"
             className="hidden"
           />
-          <span className="absolute top-[135px] left-[919px] w-[130px] text-center text-white font-['Montserrat'] text-[12px] z-[54]">
+          <span className="absolute top-[135px] left-[984px] -translate-x-1/2 whitespace-nowrap text-center text-white font-['Montserrat'] text-[12px] z-[54]">
             Upload your profile photo
           </span>
           <div
@@ -321,7 +330,7 @@ export default function Main() {
           )}
 
           {/* Right Form Section */}
-          <div className="w-[556px] min-h-[601px] h-auto pb-[50px] bg-[#0A1830] rounded-[142.361px] absolute top-[250px] left-[713px] overflow-visible z-[52]">
+          <div className="w-[556px] min-h-[601px] h-auto pb-[50px] bg-[#9e9e9e] rounded-[142.361px] absolute top-[250px] left-[713px] overflow-visible z-[52]">
             <div className="w-[379.63px] h-auto relative z-[78] mt-[55px] mr-0 mb-0 ml-[88px]">
               <div className="flex w-[379.63px] h-auto flex-col gap-[18.032px] items-start flex-nowrap relative z-[150] overflow-visible">
                 <FormDropdown
@@ -333,6 +342,7 @@ export default function Main() {
                   error={errors.attendingProgram}
                   required
                   multiSelect={true}
+                  labelColor="text-[rgb(10,24,48)]"
                 />
                 <FormDropdown
                   label="Category"
@@ -342,6 +352,7 @@ export default function Main() {
                   options={dropdownOptions.categories}
                   error={errors.category}
                   required
+                  labelColor="text-[rgb(10,24,48)]"
                 />
                 <FormDropdown
                   label="Membership Affiliation"
@@ -352,6 +363,7 @@ export default function Main() {
                   error={errors.membershipAffiliation}
                   required
                   multiSelect={true}
+                  labelColor="text-[rgb(10,24,48)]"
                 />
                 <FormDropdown
                   label="Preferred Day(s) to Attend"
@@ -362,6 +374,7 @@ export default function Main() {
                   error={errors.preferredDays}
                   required
                   multiSelect={true}
+                  labelColor="text-[rgb(10,24,48)]"
                 />
               </div>
             </div>
@@ -402,7 +415,7 @@ export default function Main() {
                   </svg>
                 )}
               </div>
-              <p className="font-['Montserrat'] text-[8px] font-normal leading-[12px] text-[#fff] tracking-[0.08px] m-0 text-justify">
+              <p className="font-['Montserrat'] text-[8px] font-normal leading-[12px] text-[rgb(10,24,48)] tracking-[0.08px] m-0 text-justify">
                 In consideration of being permitted to participate in, attend, or
                 engage with LevelUp Northeast (the "Event"), organized by the
                 Indian Digital Gaming Society (IDGS) and the Confederation of
@@ -463,10 +476,10 @@ export default function Main() {
 
           <a href="https://www.sportskeyz.com/" target="_blank" rel="noopener noreferrer" className="w-[111px] h-[65.46px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/ZDsnY5Qrg9.png)] bg-cover bg-no-repeat absolute top-[851.191px] left-[23px] z-[5] cursor-pointer hover:opacity-80 transition-opacity" />
         </div>
-        <span className="flex w-[1212px] h-[20px] justify-center items-start font-['Montserrat'] text-[16px] font-medium leading-[19.504px] text-[#fff] relative text-center whitespace-nowrap z-[6] mt-[10px] mr-0 mb-0 ml-[112px]">
+        <span className="flex w-[1212px] h-[20px] justify-center items-start font-['Montserrat'] text-[16px] font-medium leading-[19.504px] text-white relative text-center whitespace-nowrap z-[6] mt-[10px] mr-0 mb-0 ml-[112px]">
           © 2026 <a href="https://www.sportskeyz.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#30dfa0] transition-colors">SportsKeyz</a>. Powered by SporTech Innovation. All rights reserved.
         </span>
-        <div className="w-[1442px] h-[1442px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/pMwY8Mpfqo.png)] bg-cover bg-no-repeat absolute top-[-4px] left-1/2 -translate-x-1/2 w-full" />
+        <div className="w-full h-full bg-[url('/background-1.png')] bg-cover bg-center bg-no-repeat absolute top-0 left-0 z-0" />
 
         {/* Success Modal */}
         {showSuccessModal && (

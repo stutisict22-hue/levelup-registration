@@ -13,9 +13,7 @@ export default function Header() {
             </div>
 
             <div className="header-center">
-                <a href="https://gamingsociety.in/" target="_blank" rel="noopener noreferrer">
-                    <img src="/assets/levelup.png" alt="Level Up" style={{ height: '70px', marginTop: '5px' }} />
-                </a>
+                <img src="/levelup-clean.png" alt="Level Up" style={{ height: '70px', marginTop: '5px' }} />
             </div>
         </header>
     );

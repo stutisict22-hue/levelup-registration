@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function FormInput({ label, value, onChange, placeholder, type = "text", error, required }) {
+export default function FormInput({ label, value, onChange, placeholder, type = "text", error, required, labelColor = "text-[#fff]" }) {
   return (
     <div className="flex flex-col gap-[6px] items-start w-full flex-nowrap relative">
-      <label className="flex items-center gap-1 font-['Montserrat'] text-[12px] leading-[16px] text-[#fff]">
+      <label className={`flex items-center gap-1 font-['Montserrat'] text-[12px] leading-[16px] ${labelColor}`}>
         <span className="align-middle">{label}</span>
         {required && <span className="text-[#ff5c5c] text-[14px] leading-[16px] align-middle">*</span>}
       </label>

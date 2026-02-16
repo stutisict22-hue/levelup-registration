@@ -1,6 +1,7 @@
 .register-page {
     height: 100vh;
-    background: url('/assets/mobile-bg.png') no-repeat center center/cover;
+    background: url('/background-1.png') no-repeat center center;
+    background-size: 100% 100%;
     position: relative;
     overflow: hidden;
     /* Center the inner form and add spacing */
@@ -19,7 +20,7 @@
     /* Take available vertical space */
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(10, 24, 48, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     border-radius: 0;
@@ -94,7 +95,7 @@
     margin-top: 3px;
     accent-color: #66ffb2;
     background: transparent;
-    border: 1px solid #66ffb2;
+    border: 1.5px solid #30dfa0;
     border-radius: 4px;
 }
 
@@ -116,10 +117,10 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background: #66ffb2;
-    /* Bright Green */
+    background: #30dfa0;
+    /* Light Gray */
     border: none;
-    color: #1e1e1e;
+    color: #000;
     font-weight: 700;
     font-size: 20px;
     cursor: pointer;
