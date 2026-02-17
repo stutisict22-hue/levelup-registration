@@ -177,27 +177,41 @@ export default function Main() {
 
     try {
       const response = await formService.submitRegistration(formData);
-      setRegistrationId(response.id);
-      setShowSuccessModal(true);
-      setSubmitStatus(null);
-      // Reset form after successful submission
-      setFormData({
-        firstName: "",
-        middleName: "",
-        lastName: "",
-        designation: "",
-        organization: "",
-        organizationType: "",
-        emailAddress: "",
-        city: "",
-        phoneNo: "",
-        attendingProgram: "",
-        category: "",
-        membershipAffiliation: [],
-        preferredDays: [],
-        agreedToTerms: false,
-      });
+
+      if (response.result === "success") {
+        setRegistrationId(response.id);
+        setShowSuccessModal(true);
+        setSubmitStatus(null);
+        // Reset form after successful submission
+        setFormData({
+          firstName: "",
+          middleName: "",
+          lastName: "",
+          designation: "",
+          organization: "",
+          organizationType: "",
+          emailAddress: "",
+          city: "",
+          phoneNo: "",
+          attendingProgram: "",
+          category: "",
+          membershipAffiliation: [],
+          preferredDays: [],
+          agreedToTerms: false,
+        });
+      } else if (response.result === "error") {
+        setSubmitStatus({
+          type: "error",
+          message: response.message || "An error occurred during registration.",
+        });
+        // Do NOT reset form on error so user can fix it
+      } else {
+        // Fallback for unexpected response format
+        throw new Error("Unexpected response from server.");
+      }
+
     } catch (error) {
+      console.error("Submission error:", error);
       setSubmitStatus({
         type: "error",
         message: "Failed to submit registration. Please try again.",
