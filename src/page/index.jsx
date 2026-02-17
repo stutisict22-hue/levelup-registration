@@ -176,28 +176,52 @@ export default function Main() {
     setSubmitStatus(null);
 
     try {
+      console.log("Submitting formData:", formData);
       const response = await formService.submitRegistration(formData);
-      setRegistrationId(response.id);
-      setShowSuccessModal(true);
-      setSubmitStatus(null);
-      // Reset form after successful submission
-      setFormData({
-        firstName: "",
-        middleName: "",
-        lastName: "",
-        designation: "",
-        organization: "",
-        organizationType: "",
-        emailAddress: "",
-        city: "",
-        phoneNo: "",
-        attendingProgram: "",
-        category: "",
-        membershipAffiliation: [],
-        preferredDays: [],
-        agreedToTerms: false,
-      });
+      console.log("Backend Response:", response);
+
+      if (response && response.result === "success") {
+        setRegistrationId(response.id);
+        setShowSuccessModal(true);
+        setSubmitStatus(null);
+        // Reset form after successful submission
+        setFormData({
+          firstName: "",
+          middleName: "",
+          lastName: "",
+          designation: "",
+          organization: "",
+          organizationType: "",
+          emailAddress: "",
+          city: "",
+          phoneNo: "",
+          attendingProgram: "",
+          category: "",
+          membershipAffiliation: [],
+          preferredDays: [],
+          agreedToTerms: false,
+        });
+      } else if (response && response.result === "error") {
+        console.log("Error from backend:", response.message);
+        setSubmitStatus({
+          type: "error",
+          message: response.message || "An error occurred during registration.",
+        });
+      } else {
+        console.warn("Unexpected response format:", response);
+        // Fallback for unexpected response format
+        // If response has an ID but no result field, assume success (legacy check)
+        if (response && response.id) {
+          setRegistrationId(response.id);
+          setShowSuccessModal(true);
+          setSubmitStatus(null);
+        } else {
+          throw new Error("Unexpected response from server.");
+        }
+      }
+
     } catch (error) {
+      console.error("Submission error:", error);
       setSubmitStatus({
         type: "error",
         message: "Failed to submit registration. Please try again.",
@@ -311,7 +335,7 @@ export default function Main() {
             className="hidden"
           />
           <span className="absolute top-[135px] left-[984px] -translate-x-1/2 whitespace-nowrap text-center text-white font-['Montserrat'] text-[12px] z-[54]">
-            Upload your profile photo
+            Upload your profile photo<span className="text-red-500">*</span>
           </span>
           <div
             className="w-[129.223px] h-[129.223px] rounded-full absolute top-[160px] left-[919.051px] z-[53] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
@@ -453,7 +477,7 @@ export default function Main() {
             onClick={handleSubmit}
           >
             <span
-              className={`flex w-[104.289px] h-[31px] justify-center items-center font-['Baloo'] text-[25.644750595092773px] font-normal leading-[30.774px] text-[#23282e] absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-center whitespace-nowrap z-[84] ${isSubmitting ? "opacity-50" : ""
+              className={`flex justify-center items-center font-['Baloo'] font-normal text-[#23282e] absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-center whitespace-nowrap z-[84] ${isSubmitting ? "text-[16px] leading-[20px] w-[90px] h-[25px] opacity-70" : "text-[25.644750595092773px] leading-[30.774px] w-[104.289px] h-[31px]"
                 }`}
             >
               {isSubmitting ? "Submitting..." : "Submit"}
@@ -555,6 +579,7 @@ export default function Main() {
           profileImage={profileImage}
           showSuccessModal={showSuccessModal}
           registrationId={registrationId}
+          submitStatus={submitStatus}
           onCloseSuccess={() => {
             setShowSuccessModal(false);
             setProfileImage(null);

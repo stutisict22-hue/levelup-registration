@@ -17,6 +17,7 @@ export default function MobileRegister({
     profileImage,
     showSuccessModal,
     registrationId,
+    submitStatus,
     onCloseSuccess
 }) {
     return (
@@ -25,7 +26,7 @@ export default function MobileRegister({
                 <Header />
 
                 <div className="content-padding">
-                    <p className="text-white text-center mt-1 font-['Montserrat'] text-[10px] whitespace-nowrap">Upload your profile photo</p>
+                    <p className="text-white text-center mt-1 font-['Montserrat'] text-[10px] whitespace-nowrap">Upload your profile photo<span className="text-red-500">*</span></p>
                     <AvatarUpload
                         onImageSelect={(file) => handleImageUpload({ target: { files: [file] } })}
                         previewUrl={profileImage}
@@ -150,6 +151,14 @@ export default function MobileRegister({
                         </div>
                     </div>
                     {errors.agreedToTerms && <span className="error-text" style={{ marginLeft: '26px' }}>{errors.agreedToTerms}</span>}
+
+                    {submitStatus && submitStatus.type === "error" && (
+                        <div className="mt-3 mx-2 p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-center">
+                            <span className="text-red-400 text-xs font-['Montserrat'] font-medium block">
+                                {submitStatus.message}
+                            </span>
+                        </div>
+                    )}
 
                     <div className="submit-container">
                         <button className="submit-btn" onClick={handleSubmit} disabled={isSubmitting}>

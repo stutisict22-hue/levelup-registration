@@ -1,7 +1,7 @@
 // Backend API service for form submission
 // Uses environment variable for deployment-specific endpoints
 // Production URL is used as fallback if environment variable is not set
-const API_BASE_URL = import.meta.env.VITE_FORM_ENDPOINT || "https://script.google.com/macros/s/AKfycbzlIWlVC1LwFzBetKb6VtSc_HfxeXPcb6uiInDrN90rjQE_eO1ghyrhk8wrjECxtVOBBQ/exec";
+const API_BASE_URL = import.meta.env.VITE_FORM_ENDPOINT || "https://script.google.com/macros/s/AKfycbzPF-4tOFoz0OXn4F8Jpu1367Siux5AdUWDaKC2Dbo9aTZLbOvfdasaFkU3C6nM2czC/exec";
 
 export const formService = {
   // Submit registration form
@@ -81,6 +81,7 @@ export const dropdownOptions = {
   membershipAffiliations: [
     "CII",
     "IDGS",
+    "None",
   ],
 
   preferredDays: [
