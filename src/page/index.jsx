@@ -558,6 +558,7 @@ export default function Main() {
           profileImage={profileImage}
           showSuccessModal={showSuccessModal}
           registrationId={registrationId}
+          submitStatus={submitStatus}
           onCloseSuccess={() => {
             setShowSuccessModal(false);
             setProfileImage(null);
