@@ -301,6 +301,9 @@ export default function Main() {
             accept="image/*"
             className="hidden"
           />
+          <span className="absolute top-[135px] left-[984px] -translate-x-1/2 whitespace-nowrap text-center text-white font-['Montserrat'] text-[12px] z-[54]">
+            Upload your profile photo*
+          </span>
           <div
             className="w-[129.223px] h-[129.223px] rounded-full absolute top-[160px] left-[919.051px] z-[53] cursor-pointer hover:opacity-80 transition-opacity overflow-hidden"
             onClick={() => fileInputRef.current?.click()}

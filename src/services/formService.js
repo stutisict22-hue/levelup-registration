@@ -81,6 +81,7 @@ export const dropdownOptions = {
   membershipAffiliations: [
     "CII",
     "IDGS",
+    "None",
   ],
 
   preferredDays: [

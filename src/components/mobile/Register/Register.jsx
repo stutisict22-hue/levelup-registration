@@ -25,6 +25,7 @@ export default function MobileRegister({
                 <Header />
 
                 <div className="content-padding">
+                    <p className="text-white text-center mt-1 font-['Montserrat'] text-[10px] whitespace-nowrap">Upload your profile photo</p>
                     <AvatarUpload
                         onImageSelect={(file) => handleImageUpload({ target: { files: [file] } })}
                         previewUrl={profileImage}
