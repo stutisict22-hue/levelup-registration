@@ -36,8 +36,19 @@ export default function Main() {
 
   // Dynamic scaling for desktop view
   const DESIGN_WIDTH = 1366;
-  const [scale, setScale] = useState(1);
-  const [leftOffset, setLeftOffset] = useState(0);
+  // Function to get current dimensions
+  const getDimensions = () => {
+    if (typeof window === 'undefined') return { scale: 1, leftOffset: 0 };
+    const width = document.documentElement.clientWidth;
+    if (width < DESIGN_WIDTH) {
+      return { scale: width / DESIGN_WIDTH, leftOffset: 0 };
+    } else {
+      return { scale: 1, leftOffset: (width - DESIGN_WIDTH) / 2 };
+    }
+  };
+
+  const [scale, setScale] = useState(getDimensions().scale);
+  const [leftOffset, setLeftOffset] = useState(getDimensions().leftOffset);
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -52,7 +63,7 @@ export default function Main() {
       }
     };
 
-    updateDimensions();
+    // updateDimensions(); // Removed to prevent double-render/flash
     window.addEventListener('resize', updateDimensions);
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
