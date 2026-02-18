@@ -13,7 +13,7 @@ export default function Header() {
             </div>
 
             <div className="header-center">
-                <img src="/levelup-clean.png" alt="Level Up" style={{ height: '70px', marginTop: '5px' }} />
+                <img src="/White.png" alt="Level Up" style={{ height: '250px', marginTop: '-85px', marginBottom: '-90px' }} />
             </div>
         </header>
     );

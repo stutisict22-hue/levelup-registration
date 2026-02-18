@@ -238,8 +238,8 @@ export default function Main() {
           <div className="w-[1366.667px] h-[920px] bg-[#0A1830] opacity-70 absolute top-0 left-0 overflow-hidden z-[2]" />
           <a href="https://www.cii.in/" target="_blank" rel="noopener noreferrer" className="w-[170px] h-[90px] bg-[url('/CII%20Logo.png')] bg-contain bg-center bg-no-repeat absolute top-[15px] left-[23px] z-[4] cursor-pointer hover:opacity-80 transition-opacity" />
           <a href="https://gamingsociety.in/" target="_blank" rel="noopener noreferrer" className="w-[120px] h-[60px] bg-[url('/assets/idges.png')] bg-contain bg-center bg-no-repeat absolute top-[21px] left-[1230px] z-[3] cursor-pointer hover:opacity-80 transition-opacity" />
-          <img src="/levelup-clean.png" alt="Level Up" className="absolute top-[24px] left-[505px] z-[85] h-[123px] w-[355.494px] object-contain" />
 
+          <img src="/White.png" alt="Level Up" className="absolute top-[-120px] left-[83px] z-[85] h-[420px] w-[1200px] object-contain pointer-events-none" />
           {/* Left Form Section */}
           <div className="w-[556.158px] h-[703.264px] bg-[#9e9e9e] rounded-[142.361px] absolute top-[160px] left-[100px] overflow-visible z-[9]">
 
@@ -553,8 +553,7 @@ export default function Main() {
               {/* Close Button */}
               <button
                 onClick={() => {
-                  setShowSuccessModal(false);
-                  setProfileImage(null);
+                  window.location.href = "https://levelupnortheast.in/";
                 }}
                 className="mt-[10px] px-[40px] py-[12px] bg-gradient-to-r from-brand-primary to-brand-accent-cyan rounded-[30px] font-['Montserrat'] text-[16px] font-semibold text-[#1d1e20] hover:opacity-90 transition-opacity cursor-pointer"
               >
@@ -581,8 +580,7 @@ export default function Main() {
           registrationId={registrationId}
           submitStatus={submitStatus}
           onCloseSuccess={() => {
-            setShowSuccessModal(false);
-            setProfileImage(null);
+            window.location.href = "https://levelupnortheast.in/";
           }}
         />
       </div>
