@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./index.css";
 import FormInput from "../components/FormInput";
 import FormDropdown from "../components/FormDropdown";
@@ -33,6 +33,29 @@ export default function Main() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [registrationId, setRegistrationId] = useState("");
   const fileInputRef = useRef(null);
+
+  // Dynamic scaling for desktop view
+  const DESIGN_WIDTH = 1366;
+  const [scale, setScale] = useState(1);
+  const [leftOffset, setLeftOffset] = useState(0);
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      const width = document.documentElement.clientWidth; // Use clientWidth to exclude scrollbars
+
+      if (width < DESIGN_WIDTH) {
+        setScale(width / DESIGN_WIDTH);
+        setLeftOffset(0);
+      } else {
+        setScale(1);
+        setLeftOffset((width - DESIGN_WIDTH) / 2);
+      }
+    };
+
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
 
 
   const handleImageUpload = (e) => {
@@ -233,8 +256,8 @@ export default function Main() {
 
   return (
     <>
-      <div className="hidden md:block main-container w-[153.85%] -ml-[26.92%] h-[980px] bg-[#0A1830] relative overflow-hidden my-0 origin-top scale-[0.65] xl:scale-100 xl:w-full xl:ml-0">
-        <div className="w-[1366.667px] h-[920px] relative z-[85] mt-[20px] mx-auto">
+      <div className="hidden md:block bg-[#0A1830] relative overflow-x-hidden" style={{ minHeight: `${960 * scale}px` }}>
+        <div style={{ transform: `scale(${scale})`, transformOrigin: 'top left', left: `${leftOffset}px`, width: '1366.667px', minHeight: '940px', position: 'relative', zIndex: 85, marginTop: '20px' }}>
           <div className="w-[1366.667px] h-[920px] bg-[#0A1830] opacity-70 absolute top-0 left-0 overflow-hidden z-[2]" />
           <a href="https://www.cii.in/" target="_blank" rel="noopener noreferrer" className="w-[170px] h-[90px] bg-[url('/CII%20Logo.png')] bg-contain bg-center bg-no-repeat absolute top-[15px] left-[23px] z-[4] cursor-pointer hover:opacity-80 transition-opacity" />
           <a href="https://gamingsociety.in/" target="_blank" rel="noopener noreferrer" className="w-[120px] h-[60px] bg-[url('/assets/idges.png')] bg-contain bg-center bg-no-repeat absolute top-[21px] left-[1230px] z-[3] cursor-pointer hover:opacity-80 transition-opacity" />
@@ -499,10 +522,10 @@ export default function Main() {
           )}
 
           <a href="https://www.sportskeyz.com/" target="_blank" rel="noopener noreferrer" className="w-[111px] h-[65.46px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-05/ZDsnY5Qrg9.png)] bg-cover bg-no-repeat absolute top-[851.191px] left-[23px] z-[5] cursor-pointer hover:opacity-80 transition-opacity" />
+          <span className="flex w-[1366px] h-[20px] justify-center items-start font-['Montserrat'] text-[16px] font-medium leading-[19.504px] text-white absolute top-[920px] left-0 text-center whitespace-nowrap z-[6]">
+            © 2026 <a href="https://www.sportskeyz.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#30dfa0] transition-colors">SportsKeyz</a>. Powered by SporTech Innovation. All rights reserved.
+          </span>
         </div>
-        <span className="flex w-[1212px] h-[20px] justify-center items-start font-['Montserrat'] text-[16px] font-medium leading-[19.504px] text-white relative text-center whitespace-nowrap z-[6] mt-[10px] mr-0 mb-0 ml-[112px]">
-          © 2026 <a href="https://www.sportskeyz.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#30dfa0] transition-colors">SportsKeyz</a>. Powered by SporTech Innovation. All rights reserved.
-        </span>
         <div className="w-full h-full bg-[url('/background-1.png')] bg-cover bg-center bg-no-repeat absolute top-0 left-0 z-0" />
 
         {/* Success Modal */}

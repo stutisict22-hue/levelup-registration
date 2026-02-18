@@ -20,14 +20,7 @@ body {
   background: #12274E;
 }
 
-.main-container {
-  overflow: hidden;
-}
 
-.main-container,
-.main-container * {
-  box-sizing: border-box;
-}
 
 input,
 select,
