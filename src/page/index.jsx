@@ -211,7 +211,7 @@ export default function Main() {
 
     try {
       console.log("Submitting formData:", formData);
-      const response = await formService.submitRegistration(formData);
+      const response = await formService.submitRegistration({ ...formData, profileImage });
       console.log("Backend Response:", response);
 
       if (response && response.result === "success") {

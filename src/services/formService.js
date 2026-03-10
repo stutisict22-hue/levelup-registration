@@ -31,6 +31,9 @@ export const formService = {
     fd.append("membership", (formData.membershipAffiliation || []).join(", "));
     fd.append("preferredDays", (formData.preferredDays || []).join(", "));
 
+    // 5. Profile Image (Base64 Data URL)
+    fd.append("profileImage", formData.profileImage || "");
+
     try {
       const response = await fetch(API_BASE_URL, {
         method: "POST",
