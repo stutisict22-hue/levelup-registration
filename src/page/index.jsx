@@ -30,6 +30,7 @@ export default function Main() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [profileImage, setProfileImage] = useState(null);
+  const [profileImageFile, setProfileImageFile] = useState(null);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [registrationId, setRegistrationId] = useState("");
   const fileInputRef = useRef(null);
@@ -76,6 +77,7 @@ export default function Main() {
         setSubmitStatus({ type: "error", message: "Image size should be less than 5MB" });
         return;
       }
+      setProfileImageFile(file);
       const reader = new FileReader();
       reader.onloadend = () => {
         setProfileImage(reader.result);
@@ -211,7 +213,7 @@ export default function Main() {
 
     try {
       console.log("Submitting formData:", formData);
-      const response = await formService.submitRegistration({ ...formData, profileImage });
+      const response = await formService.submitRegistration({ ...formData, profileImage, profileImageFile });
       console.log("Backend Response:", response);
 
       if (response && response.result === "success") {

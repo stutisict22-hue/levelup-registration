@@ -1,7 +1,7 @@
 // Backend API service for form submission
 // Uses environment variable for deployment-specific endpoints
 // Production URL is used as fallback if environment variable is not set
-const API_BASE_URL = import.meta.env.VITE_FORM_ENDPOINT || "https://script.google.com/macros/s/AKfycby2zgPCIc9Ir6xB-VQwopy2d__-9H13VDwxzfCQpRVLSX5LJbiajNTw09PEhZokJLfgpg/exec";
+const API_BASE_URL = import.meta.env.VITE_FORM_ENDPOINT || "https://script.google.com/macros/s/AKfycbzxwvudzVqK8PccuPJMruKKvy3ys_al4WTqt_8WeJ1ISpYXkDmUQlcW7QzlJMnXCH3_uQ/exec";
 
 export const formService = {
   // Submit registration form
@@ -31,8 +31,12 @@ export const formService = {
     fd.append("membership", (formData.membershipAffiliation || []).join(", "));
     fd.append("preferredDays", (formData.preferredDays || []).join(", "));
 
-    // 5. Profile Image (Base64 Data URL)
+    // 5. Profile Image (Base64 Data URL + filename)
     fd.append("profileImage", formData.profileImage || "");
+    if (formData.profileImageFile) {
+      const ext = formData.profileImageFile.name.split(".").pop();
+      fd.append("profileImageName", `${formData.firstName.trim()}.${ext}`);
+    }
 
     try {
       const response = await fetch(API_BASE_URL, {
