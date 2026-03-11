@@ -1,7 +1,7 @@
 // Backend API service for form submission
 // Uses environment variable for deployment-specific endpoints
 // Production URL is used as fallback if environment variable is not set
-const API_BASE_URL = import.meta.env.VITE_FORM_ENDPOINT || "https://script.google.com/macros/s/AKfycbyxgC3oIFTRUBPK1bJVP05hHnh9Kd6PFdB7W3e_s3WMiLm9IS5VmUQAusAKC20o1dOHdw/exec";
+const API_BASE_URL = import.meta.env.VITE_FORM_ENDPOINT || "https://script.google.com/macros/s/AKfycbyi4oi99jvCaHz5ollDR2_u2iP4nLpwsOi_bC7lvArKcRMRgJDAJcPgS0s26t0CkonEPA/exec";
 
 export const formService = {
   // Submit registration form
