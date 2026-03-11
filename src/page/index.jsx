@@ -3,6 +3,7 @@ import "./index.css";
 import FormInput from "../components/FormInput";
 import FormDropdown from "../components/FormDropdown";
 import { formService, dropdownOptions } from "../services/formService";
+import { compressImage } from "../services/imageCompressor";
 import MobileRegister from "../components/mobile/Register/Register";
 import "../styles/globals.css";
 
@@ -70,14 +71,15 @@ export default function Main() {
   }, []);
 
 
-  const handleImageUpload = (e) => {
+  const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     if (file) {
       if (file.size > 5 * 1024 * 1024) {
         setSubmitStatus({ type: "error", message: "Image size should be less than 5MB" });
         return;
       }
-      setProfileImageFile(file);
+      const compressed = await compressImage(file);
+      setProfileImageFile(compressed);
       const reader = new FileReader();
       reader.onloadend = () => {
         setProfileImage(reader.result);
@@ -86,7 +88,7 @@ export default function Main() {
           setErrors((prev) => ({ ...prev, profileImage: "" }));
         }
       };
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(compressed);
     }
   };
 

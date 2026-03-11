@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(find D:/SPORTECH_INTERNSHIP/LevelUp -type f \\\\\\( -name \"*.gs\" -o -name \"README*\" -o -name \"*.md\" \\\\\\) 2>/dev/null | grep -v node_modules)",
-      "Bash(find D:/SPORTECH_INTERNSHIP/LevelUp -maxdepth 2 -name \".env*\" -o -name \"*.env\" 2>/dev/null | grep -v node_modules)"
+      "Bash(find D:/SPORTECH_INTERNSHIP/LevelUp -maxdepth 2 -name \".env*\" -o -name \"*.env\" 2>/dev/null | grep -v node_modules)",
+      "Bash(cd D:/SPORTECH_INTERNSHIP/LevelUp && npm run build 2>&1)"
     ]
   }
 }
