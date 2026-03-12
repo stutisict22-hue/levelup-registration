@@ -102,5 +102,7 @@ export const dropdownOptions = {
     "Exhibition",
     "Job fair",
     "Masterclass",
+    "SketchUp digital art competition",
+    "Roundtable(invite only)",
   ],
 };
