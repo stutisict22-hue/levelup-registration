@@ -4,7 +4,8 @@
       "Bash(find D:/SPORTECH_INTERNSHIP/LevelUp -type f \\\\\\( -name \"*.gs\" -o -name \"README*\" -o -name \"*.md\" \\\\\\) 2>/dev/null | grep -v node_modules)",
       "Bash(find D:/SPORTECH_INTERNSHIP/LevelUp -maxdepth 2 -name \".env*\" -o -name \"*.env\" 2>/dev/null | grep -v node_modules)",
       "Bash(cd D:/SPORTECH_INTERNSHIP/LevelUp && npm run build 2>&1)",
-      "Bash(curl -s \"https://api.imgbb.com/1/upload\" -X POST -F \"key=0d0400b9fba6a8da721082770cf003bb\" -F \"image=iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==\" 2>&1)"
+      "Bash(curl -s \"https://api.imgbb.com/1/upload\" -X POST -F \"key=0d0400b9fba6a8da721082770cf003bb\" -F \"image=iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==\" 2>&1)",
+      "Bash(find /d/SPORTECH_INTERNSHIP/LevelUp/src/components -name \"*.jsx\" -o -name \"*.css\" | xargs wc -l | tail -20)"
     ]
   }
 }
