@@ -8,7 +8,7 @@ export default function Header() {
                     <img src="/CII Logo.png" alt="CII" className="logo-left" />
                 </a>
                 <a href="https://gamingsociety.in/" target="_blank" rel="noopener noreferrer">
-                    <img src="/assets/idges.png" alt="IDGES" className="logo-right" />
+                    <img src="/assets/IDGES_modified_logo.png" alt="IDGES" className="logo-right" />
                 </a>
             </div>
 

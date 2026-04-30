@@ -92,8 +92,8 @@ export const dropdownOptions = {
   ],
 
   preferredDays: [
-    "28th March 2026",
-    "29th March 2026",
+    "22nd May 2026",
+    "23rd May 2026",
   ],
 
   attendingPrograms: [

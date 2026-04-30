@@ -34,7 +34,6 @@ export default function Main() {
   const [profileImageFile, setProfileImageFile] = useState(null);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [registrationId, setRegistrationId] = useState("");
-  const [showPostponementNotice, setShowPostponementNotice] = useState(true);
   const fileInputRef = useRef(null);
 
   // Dynamic scaling for desktop view
@@ -272,7 +271,7 @@ export default function Main() {
         <div style={{ transform: `scale(${scale})`, transformOrigin: 'top left', left: `${leftOffset}px`, width: '1366.667px', minHeight: '940px', position: 'relative', zIndex: 85, marginTop: '20px' }}>
           <div className="w-[1366.667px] h-[920px] bg-[#0A1830] opacity-70 absolute top-0 left-0 overflow-hidden z-[2]" />
           <a href="https://www.cii.in/" target="_blank" rel="noopener noreferrer" className="w-[170px] h-[90px] bg-[url('/CII%20Logo.png')] bg-contain bg-center bg-no-repeat absolute top-[15px] left-[23px] z-[4] cursor-pointer hover:opacity-80 transition-opacity" />
-          <a href="https://gamingsociety.in/" target="_blank" rel="noopener noreferrer" className="w-[120px] h-[60px] bg-[url('/assets/idges.png')] bg-contain bg-center bg-no-repeat absolute top-[21px] left-[1230px] z-[3] cursor-pointer hover:opacity-80 transition-opacity" />
+          <a href="https://gamingsociety.in/" target="_blank" rel="noopener noreferrer" className="w-[130px] h-[65px] bg-[url('/assets/IDGES_modified_logo.png')] bg-contain bg-center bg-no-repeat absolute top-[21px] left-[1230px] z-[3] cursor-pointer hover:opacity-80 transition-opacity" />
 
           <img src="/White.png" alt="Level Up" className="absolute top-[-120px] left-[83px] z-[85] h-[420px] w-[1200px] object-contain pointer-events-none" />
           {/* Left Form Section */}
@@ -424,19 +423,17 @@ export default function Main() {
                   multiSelect={true}
                   labelColor="text-[rgb(10,24,48)]"
                 />
-                <div className="w-full">
-                  <label className="font-['Montserrat'] text-[11.291px] font-semibold text-[rgb(10,24,48)]">
-                    Preferred Day(s) to Attend
-                  </label>
-                  <div
-                    className="w-full h-[35px] mt-[4px] bg-[#23282e] rounded-[8px] px-[12px] flex items-center cursor-pointer opacity-60"
-                    onClick={() => setShowPostponementNotice(true)}
-                  >
-                    <span className="font-['Montserrat'] text-[11px] text-[#8a8a8a] italic">
-                      Dates to be confirmed soon
-                    </span>
-                  </div>
-                </div>
+                <FormDropdown
+                  label="Preferred Day(s) to Attend"
+                  value={formData.preferredDays}
+                  onChange={handleCheckboxChange("preferredDays")}
+                  placeholder="Preferred Day(s) to Attend"
+                  options={dropdownOptions.preferredDays}
+                  error={errors.preferredDays}
+                  required
+                  multiSelect={true}
+                  labelColor="text-[rgb(10,24,48)]"
+                />
               </div>
             </div>
 
@@ -542,29 +539,6 @@ export default function Main() {
         </div>
         <div className="w-full h-full bg-[url('/background-1.png')] bg-cover bg-center bg-no-repeat absolute top-0 left-0 z-0" />
 
-        {/* Postponement Notice Modal */}
-        {showPostponementNotice && (
-          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-[500]">
-            <div className="bg-[#0A1830] rounded-[20px] p-[40px] w-[500px] flex flex-col items-center gap-[20px] shadow-2xl border border-brand-primary/30">
-              <div className="w-[60px] h-[60px] rounded-full border-[3px] border-yellow-400 flex items-center justify-center">
-                <span className="text-yellow-400 text-[30px] font-bold">!</span>
-              </div>
-              <h2 className="font-['Montserrat'] text-[24px] font-bold text-white text-center">
-                Event Postponed
-              </h2>
-              <p className="font-['Montserrat'] text-[14px] text-[#8a8a8a] text-center leading-[22px]">
-                The event dates have been postponed and will be confirmed soon. You can still register now and the updated dates will be communicated to you shortly.
-              </p>
-              <button
-                onClick={() => setShowPostponementNotice(false)}
-                className="mt-[10px] px-[40px] py-[12px] bg-gradient-to-r from-brand-primary to-brand-accent-cyan rounded-[30px] font-['Montserrat'] text-[16px] font-semibold text-[#1d1e20] hover:opacity-90 transition-opacity cursor-pointer"
-              >
-                Got it
-              </button>
-            </div>
-          </div>
-        )}
-
         {/* Success Modal */}
         {showSuccessModal && (
           <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-[500]">
@@ -639,9 +613,6 @@ export default function Main() {
           showSuccessModal={showSuccessModal}
           registrationId={registrationId}
           submitStatus={submitStatus}
-          showPostponementNotice={showPostponementNotice}
-          onDismissPostponement={() => setShowPostponementNotice(false)}
-          onShowPostponement={() => setShowPostponementNotice(true)}
           onCloseSuccess={() => {
             window.location.href = "https://levelupnortheast.in/";
           }}

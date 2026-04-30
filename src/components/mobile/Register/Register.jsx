@@ -18,9 +18,6 @@ export default function MobileRegister({
     showSuccessModal,
     registrationId,
     submitStatus,
-    showPostponementNotice,
-    onDismissPostponement,
-    onShowPostponement,
     onCloseSuccess
 }) {
     return (
@@ -126,19 +123,15 @@ export default function MobileRegister({
                             options={dropdownOptions.membershipAffiliations}
                             error={errors.membershipAffiliation}
                         />
-                        <div className="form-field">
-                            <label className="field-label">
-                                Preferred Day(s) to Attend
-                            </label>
-                            <div
-                                className="w-full h-[44px] bg-[#23282e] rounded-[10px] px-3 flex items-center cursor-pointer opacity-60"
-                                onClick={onShowPostponement}
-                            >
-                                <span className="font-['Montserrat'] text-[12px] text-[#8a8a8a] italic">
-                                    Dates to be confirmed soon
-                                </span>
-                            </div>
-                        </div>
+                        <FormField
+                            label="Preferred Day(s) to Attend"
+                            required
+                            type="multiselect"
+                            value={formData.preferredDays}
+                            onChange={(newValues) => handleCheckboxChange("preferredDays")(newValues)}
+                            options={dropdownOptions.preferredDays}
+                            error={errors.preferredDays}
+                        />
 
                         <div className="terms-text">
                             <label className="flex items-start gap-3 cursor-pointer">
@@ -191,29 +184,6 @@ export default function MobileRegister({
                     className="w-full h-auto"
                 />
             </a>
-
-            {/* Postponement Notice Modal - Mobile */}
-            {showPostponementNotice && (
-                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-[500] p-4">
-                    <div className="bg-[#0A1830] rounded-[20px] p-6 w-full max-w-sm flex flex-col items-center gap-5 shadow-2xl border border-brand-primary/30">
-                        <div className="w-[60px] h-[60px] rounded-full border-[3px] border-yellow-400 flex items-center justify-center shrink-0">
-                            <span className="text-yellow-400 text-[30px] font-bold">!</span>
-                        </div>
-                        <h2 className="font-['Montserrat'] text-[20px] font-bold text-white text-center">
-                            Event Postponed
-                        </h2>
-                        <p className="font-['Montserrat'] text-[13px] text-[#8a8a8a] text-center leading-[20px]">
-                            The event dates have been postponed and will be confirmed soon. You can still register now and the updated dates will be communicated to you shortly.
-                        </p>
-                        <button
-                            onClick={onDismissPostponement}
-                            className="mt-2 w-full py-3 bg-gradient-to-r from-brand-primary to-brand-accent-cyan rounded-[30px] font-['Montserrat'] text-[16px] font-semibold text-[#1d1e20] hover:opacity-90 transition-opacity active:scale-95"
-                        >
-                            Got it
-                        </button>
-                    </div>
-                </div>
-            )}
 
             {/* Success Modal - Mobile Version */}
             {showSuccessModal && (
