@@ -1,0 +1,5 @@
+{
+  "buildCommand": "bash build-merged.sh",
+  "outputDirectory": "dist",
+  "framework": null
+}
