@@ -537,14 +537,14 @@ export default function Main() {
             className="justify-self-start mt-4 md:mt-6"
           >
             <img
-              src="/CII Logo.png"
+              src="./CII Logo.png"
               alt="CII"
               className="h-8 md:h-14 object-contain"
             />
           </a>
           <div className="justify-self-center mt-32 md:mt-[130px]">
             <img
-              src="/White.png"
+              src="./White.png"
               alt="LevelUp Northeast"
               className="h-[28rem] md:h-[48rem] object-contain pointer-events-none -my-28 md:-my-64"
             />
@@ -556,7 +556,7 @@ export default function Main() {
             className="justify-self-end mt-4 md:mt-6"
           >
             <img
-              src="/assets/IDGS%20Logo.png"
+              src="./assets/IDGS%20Logo.png"
               alt="IDGS"
               className="h-11 md:h-16 object-contain"
             />
@@ -1205,7 +1205,7 @@ export default function Main() {
         className="fixed bottom-6 left-[28px] md:bottom-10 md:left-[52px] z-20 w-[85px] md:w-[135px] hover:opacity-80 transition-opacity"
       >
         <img
-          src="/assets/sportskeyz.png"
+          src="./assets/sportskeyz.png"
           alt="SportsKeyz"
           className="w-full h-auto"
         />
