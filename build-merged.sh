@@ -18,6 +18,14 @@ set -euo pipefail
 VISITOR_ENDPOINT="${VITE_FORM_ENDPOINT_VISITOR:-${VITE_FORM_ENDPOINT:-}}"
 EXHIBITOR_ENDPOINT="${VITE_FORM_ENDPOINT_EXHIBITOR:-}"
 
+# Form 1's repo commits node_modules/ with binaries missing the exec bit (a
+# Windows-checkout artifact). Vercel's npm install only patches new packages
+# and doesn't fix permissions on pre-existing ones, so vite fails with
+# "Permission denied" without this. Restore exec bits before the build.
+if [ -d node_modules/.bin ]; then
+  chmod +x node_modules/.bin/* 2>/dev/null || true
+fi
+
 echo "==> Building visitor form (repo root → dist/)"
 VITE_FORM_ENDPOINT="$VISITOR_ENDPOINT" npm run build
 
