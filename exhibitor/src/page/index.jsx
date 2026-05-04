@@ -497,11 +497,15 @@ export default function Main() {
 
       if (ok) {
         // Registration captured — hand off to CII's payment page.
-        // Override per event via VITE_CII_PAYMENT_URL; falls back to
-        // LevelUp Northeast 2026's CII registration link.
-        window.location.href =
-          import.meta.env.VITE_CII_PAYMENT_URL ||
-          "https://cam.mycii.in/ORNew/Registration.html?EventId=E000070765";
+        // VITE_CII_PAYMENT_URL must be set in the deployment env.
+        const ciiPaymentUrl = import.meta.env.VITE_CII_PAYMENT_URL;
+        if (ciiPaymentUrl) {
+          window.location.href = ciiPaymentUrl;
+        } else {
+          console.error(
+            "VITE_CII_PAYMENT_URL is not set — submission saved, payment redirect skipped"
+          );
+        }
         return;
       }
 
