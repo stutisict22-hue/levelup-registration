@@ -563,7 +563,7 @@ export default function Main() {
             className="justify-self-end mt-4 md:mt-6"
           >
             <img
-              src="./assets/IDGS%20Logo.png"
+              src="./assets/IDGS-Logo.png"
               alt="IDGS"
               className="h-11 md:h-16 object-contain"
             />
