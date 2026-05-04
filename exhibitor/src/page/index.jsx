@@ -544,7 +544,7 @@ export default function Main() {
             className="justify-self-start mt-4 md:mt-6"
           >
             <img
-              src="./CII Logo.png"
+              src="./CII-Logo.png"
               alt="CII"
               className="h-8 md:h-14 object-contain"
             />
@@ -563,7 +563,7 @@ export default function Main() {
             className="justify-self-end mt-4 md:mt-6"
           >
             <img
-              src="./assets/IDGS%20Logo.png"
+              src="./assets/IDGS-Logo.png"
               alt="IDGS"
               className="h-11 md:h-16 object-contain"
             />
